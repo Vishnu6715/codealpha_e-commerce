@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopKart India</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<section id="authPage" class="auth-page">
+  <div class="auth-left">
+    <div class="badge">India's smart shopping app</div>
+    <h1>ShopKart India</h1>
+    <p>Login first, then explore products, cart, product details and orders.</p>
+    <div class="mini-products">
+      <img src="images/bag.png" alt="Bag">
+      <img src="images/headphones.png" alt="Headphones">
+      <img src="images/watch.png" alt="Watch">
+    </div>
+  </div>
+  <div class="auth-card">
+    <div class="cart-logo">🛒</div>
+    <h2 id="authTitle">Welcome Back</h2>
+    <p class="sub">Use your account to continue</p>
+    <div class="tabs">
+      <button id="loginTab" class="active" type="button">Login</button>
+      <button id="registerTab" type="button">Register</button>
+    </div>
+    <form id="authForm">
+      <input id="name" placeholder="Full Name" class="hidden" />
+      <input id="email" type="email" placeholder="Email address" required />
+      <input id="password" type="password" placeholder="Password" required />
+      <button class="primary" type="submit" id="authBtn">Login</button>
+      <p id="authMsg" class="auth-msg"></p>
+    </form>
+  </div>
+</section>
+
+<main id="appPage" class="hidden">
+  <header class="topbar">
+    <div class="logo">🛒 ShopKart <span>India</span></div>
+    <input id="searchInput" placeholder="Search products, brands and categories" />
+    <select id="categoryFilter"><option value="">All Categories</option></select>
+    <button type="button" onclick="showView('home')">Home</button>
+    <button type="button" onclick="showView('orders')">My Orders</button>
+    <button type="button" onclick="toggleCart()">Cart (<span id="cartCount">0</span>)</button>
+    <button type="button" onclick="logout()" class="logout">Logout</button>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="sale-tag">Mega Sale Live</p>
+      <h1>Big Indian Shopping Sale</h1>
+      <p>Best products with Indian rupee price only.</p>
+      <button type="button" onclick="loadProducts()">Shop Now</button>
+    </div>
+    <div class="hero-offer">UP TO<br><b>60%</b><br>OFF</div>
+  </section>
+
+  <p id="msg" class="msg"></p>
+  <section id="homeView">
+    <h2 class="section-title">Featured Products</h2>
+    <div id="products" class="grid"></div>
+  </section>
+  <section id="detailsView" class="hidden"></section>
+  <section id="ordersView" class="hidden"><h2 class="section-title">My Orders</h2><div id="ordersList"></div></section>
+
+  <aside id="cartPanel" class="cart-panel">
+    <div class="cart-head"><h2>Your Cart</h2><button type="button" onclick="toggleCart()">×</button></div>
+    <div id="cartItems"></div>
+    <h3>Total: ₹<span id="cartTotal">0</span></h3>
+    <input id="address" placeholder="Delivery Address" />
+    <input id="phone" placeholder="Phone Number" />
+    <button type="button" class="primary" onclick="placeOrder()">Place Order</button>
+  </aside>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
