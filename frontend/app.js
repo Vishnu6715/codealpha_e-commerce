@@ -1,4 +1,4 @@
-const API = "http://localhost:9000/api";
+const API = "https://shopkart-backend-s7ie.onrender.com"
 
 let mode = "login";
 let token = localStorage.getItem("token");
